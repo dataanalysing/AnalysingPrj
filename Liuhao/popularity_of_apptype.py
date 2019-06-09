@@ -1,6 +1,7 @@
 import csv
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 app_labels = pd.read_csv("../data/data/app_labels.csv")              #app_id , label_id
 label_categories = pd.read_csv("../data/data/label_categories.csv")  #label_id category
@@ -23,3 +24,11 @@ type_counts = app_labels_count.values.tolist()
 
 print(type_names)
 print(type_counts)
+
+plt.rcParams['font.sans-serif']=['SimHei']
+plt.title('app类型热度前20名')
+plt.xlabel("热度")
+plt.ylabel("类型")
+plt.xticks(np.arange(20),type_names[0:20],rotation=45)
+plt.bar(type_names[0:20],type_counts[0:20])
+plt.show()
