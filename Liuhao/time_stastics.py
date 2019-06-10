@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
 def convert_to_date(ele):
     ele = ele.split()[0]
     return ele
@@ -48,16 +49,16 @@ def run():
     count_list1 = time_count.values.tolist()
 
     #绘制折线图
-    plt.figure(figsize=(15, 7))
+    plt.figure(figsize=(30, 7))
     plt.rcParams['font.sans-serif'] = ['SimHei']
-    plt.plot(count_list[1:49],color = 'r')
-    plt.plot(count_list1[1:49], color='g')
+    plt.plot(count_list[1:169],color = 'r')
+    plt.plot(count_list1[1:169], color='g')
     plt.xlabel("时间")
     plt.ylabel("活跃量")
     plt.legend(["所有app","游戏类型app"])
-    plt.title("5月1日至月3日，app活跃度随时间变化情况")
+    plt.title("2016年5月1日至5月7日，app活跃度随时间变化情况")
     plt.ylim((0,30000))
-    plt.xticks(range(1,49),time_list[1:49],rotation=45)
+    plt.xticks(range(1,169,4),time_list[1:169:4],rotation=45)
     plt.show()
     pass
 
